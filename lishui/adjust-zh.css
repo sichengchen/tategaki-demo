@@ -1,0 +1,24 @@
+body {
+    font-family: "Noto Serif TC", serif;
+}
+
+.safari .squeeze-other-punc {
+    font-feature-settings: 'locl';
+}
+
+/* Disable glyph replacement in context for Firefox and Chrome */
+.firefox .squeeze-other-punc:last-child {
+    margin-bottom: -1rem;
+}
+
+.chrome .squeeze-other-punc:only-child,
+.firefox .squeeze-other-punc:only-child::before {
+    margin-top: -1rem;
+}
+
+.chrome .squeeze-other-punc:only-child::before,
+.firefox .squeeze-other-punc:only-child::before,
+.firefox .squeeze-other-punc:last-child::after {
+    content: '\2060〇'; /* U+2060 WORD JOINER, avoid punc being first in a line */
+    opacity: 0;
+}
